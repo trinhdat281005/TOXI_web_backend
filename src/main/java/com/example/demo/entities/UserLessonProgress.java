@@ -1,14 +1,59 @@
 package com.example.demo.entities;
 
 import java.time.LocalDateTime;
+import lombok.Data;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.annotations.UpdateTimestamp;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Data
+@Table(name = "User_lesson_progress")
 public class UserLessonProgress {
-	private Integer userLessonProgressId;
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer userLessonProgressId;
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "lesson_id", nullable = false)
     private Lesson lesson;
+	
+	@Column(name = "is_completed")
     private Boolean isCompleted;
-    private Integer lastPosition;
+	
+	@Column(name = "last_position")
+    private Integer lastPosition = 0;
+	
+	
+	@Column(name = "last_accessed_at")
+    @UpdateTimestamp // Tự động cập nhật mỗi khi học viên bấm vào xem lại
     private LocalDateTime lastAccessedAt;
 
+	@Column(name = "completed_at")
     private LocalDateTime completedAt;
 }

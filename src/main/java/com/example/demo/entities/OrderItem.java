@@ -48,10 +48,12 @@ public class OrderItem {
     @JoinColumn(name = "item_id", referencedColumnName = "course_id", insertable = false, updatable = false)
 	
     private Course course;
+	
+	
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id", referencedColumnName = "book_id", insertable = false, updatable = false)
-    
     private Book book;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id", referencedColumnName = "combo_id", insertable = false, updatable = false)
     private Combo combo;
