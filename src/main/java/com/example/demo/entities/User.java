@@ -33,12 +33,12 @@ private Integer userId;
 private String email;
 	@Column(name = "username",length=255)
 private String userName;
-	@Column(name="passwordd",length=512)
+	@Column(name="password",length=512)
 private  String passWordd;
 	@Column(name="full_name",length=255)
 private String fullName;
 	@Column(name="phone")
-private Integer phone;
+private String phone;
 	@Column(name="status")
 private Boolean status;
 	@Column(name="address")
@@ -58,7 +58,7 @@ private Cart cart;
 		CascadeType.REFRESH, CascadeType.MERGE
 })
 
-private List<Oder> oders;
+private List<Order> orders;
 @OneToMany(mappedBy="user",fetch= FetchType.LAZY,cascade = {
 		CascadeType.PERSIST,CascadeType.DETACH,
 		CascadeType.REFRESH, CascadeType.MERGE
@@ -74,9 +74,7 @@ private List<UserCourse> userCourses;
 		CascadeType.REFRESH, CascadeType.MERGE
 })
 private List<QuizResult> quizResults;
-@OneToMany(mappedBy="user",fetch= FetchType.LAZY,cascade = {
-		CascadeType.PERSIST,CascadeType.DETACH,
-		CascadeType.REFRESH, CascadeType.MERGE
-})
-private List<Comment> comments;
+		
+@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+private List<Comment> comments = new ArrayList<>();
 }

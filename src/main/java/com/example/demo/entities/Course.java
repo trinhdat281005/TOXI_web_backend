@@ -20,8 +20,8 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table (name = " Courses")
-public class Course {
+@Table (name = " courses")
+public class Category {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
@@ -54,10 +54,13 @@ public class Course {
 
 @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
 private List<UserCourse> userCourses = new ArrayList<>();
+
 @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
 private List<CartItem> cartItems = new ArrayList<>();
+
 @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
 private List<OrderItem> orderItems = new ArrayList<>();
+
 @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
 private List<ComboItem> comboItems = new ArrayList<>();
 

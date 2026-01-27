@@ -32,7 +32,7 @@ public class UserLessonProgress {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "user_lesson_progressId")
     private Integer userLessonProgressId;
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

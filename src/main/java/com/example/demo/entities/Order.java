@@ -22,17 +22,17 @@ import jakarta.persistence.Table;
 import lombok.Data;
 @Entity
 @Data
-@Table(name = "Oder")
-public class Oder {	
+@Table(name = "orders")
+public class Order {	
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
-	@Column(name = "Oder_id")
-	private Integer oderId;
+	@Column(name = "order_id")
+	private Integer orderId;
 	
 	@Column(name = "total_amount",nullable = false, precision = 15, scale = 2)
     private BigDecimal totalAmount;   
 	
-	@Column(name = "oder_code",unique = true, nullable = false, length = 50)
+	@Column(name = "order_code",unique = true, nullable = false, length = 50)
     private String oderCode;    
 	
 	@Column(name = "created_at", updatable = false)
@@ -67,11 +67,12 @@ public class Oder {
 	@Column(name = "has_physical_item")
     private Boolean hasPhysicalItem = false;  
 	
-	@OneToOne(mappedBy = "oder", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private ShippingOder shippingOrder;
 	
-@OneToMany(mappedBy ="oder",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+@OneToMany(mappedBy ="order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<OrderItem> oderItems = new ArrayList<>() ;
+
     public enum PaymentStatus {pending, paid, failed, expired};
     
     public enum ShippingStatus {none, preparing, shipping, delivered, cancelled};

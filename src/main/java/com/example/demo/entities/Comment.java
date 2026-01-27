@@ -37,8 +37,8 @@ public class Comment {
     private Integer commentId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lesson_id", nullable = false)

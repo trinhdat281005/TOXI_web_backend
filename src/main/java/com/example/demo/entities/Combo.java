@@ -26,7 +26,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 @Entity
 @Data
-@Table(name = "Combo")
+@Table(name = "Combos")
 public class Combo {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +46,7 @@ public class Combo {
     private String description;
     
     @Column(name = "thumbnail_url")
-    private String thumnailUrl;
+    private String thumbnailUrl;
     
     @OneToMany(mappedBy = "combo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ComboItem> comboItems = new ArrayList<>();

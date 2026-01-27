@@ -28,7 +28,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Data
-@Table(name = "Cart_item")
+@Table(name = "Cart_items")
 public class CartItem {
 	
 	@Id
@@ -39,6 +39,12 @@ public class CartItem {
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_id", referencedColumnName = "book_id", insertable = false, updatable = false)
+    private Book book;
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_id", referencedColumnName = "course_id", insertable = false, updatable = false)
+    private Course course;
 	
 	@Column(name = "item_id", nullable = false)
     private Integer itemId;

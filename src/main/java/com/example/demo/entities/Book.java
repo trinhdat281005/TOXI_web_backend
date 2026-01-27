@@ -22,7 +22,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 	@Entity
 	@Data
-	@Table(name = "Book")
+	@Table(name = "Books")
 	public class Book {
 		@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)

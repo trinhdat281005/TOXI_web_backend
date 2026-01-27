@@ -18,15 +18,16 @@ import jakarta.persistence.Table;
 import lombok.Data;
 @Entity
 @Data
-@Table ( name = "Oder_item")
+@Table ( name = "Order_items")
 public class OrderItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer oderItemId;
+	@Column(name = "order_item_id")
+	private Integer orderItemId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Oder_id")
-    private Oder oder;
+    @JoinColumn(name = "order_id")
+    private Order order;
 	
 	@Column(name = "item_id")
     private Integer itemId;
@@ -41,8 +42,6 @@ public class OrderItem {
 	@Column(name = "quantity")
     private Integer quantity;
 	
-	@OneToOne(mappedBy = "oderItem", cascade = CascadeType.ALL)
-    private ShippingOder shippingInfo; 
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id", referencedColumnName = "course_id", insertable = false, updatable = false)

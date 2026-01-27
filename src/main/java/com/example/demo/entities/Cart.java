@@ -27,7 +27,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 @Entity
 @Data
-@Table(name = "Cart")
+@Table(name = "Carts")
 public class Cart {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

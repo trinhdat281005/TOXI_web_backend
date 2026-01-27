@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "Shipping_order")
+@Table(name = "Shipping_orders")
 public class ShippingOder {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class ShippingOder {
 	
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", referencedColumnName = "order_id")
-    private Oder order;
+    private Order order;
 	
 	@Column(nullable = false, length = 15)
     private String phone;

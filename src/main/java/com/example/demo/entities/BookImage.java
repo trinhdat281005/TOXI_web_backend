@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 @Entity
 @Data
-@Table(name = "Book_image")
+@Table(name = "Book_images")
 public class BookImage {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
