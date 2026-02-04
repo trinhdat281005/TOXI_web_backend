@@ -21,7 +21,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table (name = " courses")
-public class Category {
+public class Course {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")

@@ -1,6 +1,6 @@
 package com.example.demo.DTO;
 
-public class QuizDetailsResponse {
+public class ExerciseDetailResponseDTO {
 	private Integer quizId;
     private String title;
     private Integer totalQuestions;    // Số câu hỏi (ví dụ: 25 câu)
@@ -10,5 +10,5 @@ public class QuizDetailsResponse {
     private Integer maxPauses;        // Số lần tạm dừng tối đa (ví dụ: 3 lần)
     private Double passScorePercent;  // Điểm để vượt qua (ví dụ: 60%)
     private Integer lastScore;        // Điểm lần gần nhất (để hiện số 0 lớn ở giữa)
-    private String documentUrl;       // Link tài liệu đính kèm bài thi
+    private String documentUrl;
 }

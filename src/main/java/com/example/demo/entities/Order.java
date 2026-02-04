@@ -33,7 +33,7 @@ public class Order {
     private BigDecimal totalAmount;   
 	
 	@Column(name = "order_code",unique = true, nullable = false, length = 50)
-    private String oderCode;    
+    private String orderCode;    
 	
 	@Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();

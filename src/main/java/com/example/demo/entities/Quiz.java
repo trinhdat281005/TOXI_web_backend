@@ -30,7 +30,16 @@ public class Quiz {
 	@Column(name = "pass_score")
     private Integer passScore;
 	@Column(name = "time_limit")
-    private Integer timeLimit;
+ 
+	private Integer timeLimit;    
+	// Thời gian (phút)
+	@Column(name = "max_attempts")
+    private Integer maxAttempts;  
+	@Column(name = "max_pauses")// Số lần cho phép làm bài
+    private Integer maxPauses;   
+	// Số lần cho phép tạm dừng
+	
+   
 	@OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<QuizQuestion> quizQuestions = new ArrayList<>();
 	@OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY)

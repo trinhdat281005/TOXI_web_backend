@@ -1,5 +1,9 @@
 package com.example.demo.services;
 
-public class UserService {
+import com.example.demo.entities.User;
 
+public interface UserService {
+User register( User user);
+User loginByEmail (String email , String passWord);
+User loginByUserName ( String userName , String passWord);
 }
